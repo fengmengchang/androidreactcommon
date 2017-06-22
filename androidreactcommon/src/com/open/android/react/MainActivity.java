@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements DefaultHardwareBa
     private ReactInstanceManager mReactInstanceManager;
 	private String bundleAssetName = "index.android.bundle";
 	private String jSMainModuleName = "index.android";
-	private String moduleName = "RCTZhiHuDaily";
+	private String moduleName = "helloworld";
 	private boolean remoteable;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,9 +81,15 @@ public class MainActivity extends AppCompatActivity implements DefaultHardwareBa
      * 接受页面传参
      */
     public void initIntent(){
-    	bundleAssetName = getIntent().getStringExtra("bundleAssetName");
-        jSMainModuleName = getIntent().getStringExtra("jSMainModuleName");
-        moduleName = getIntent().getStringExtra("moduleName");
+    	if(getIntent().getStringExtra("bundleAssetName")!=null){
+    		bundleAssetName = getIntent().getStringExtra("bundleAssetName");
+    	}
+    	if(getIntent().getStringExtra("jSMainModuleName")!=null){
+    		jSMainModuleName = getIntent().getStringExtra("jSMainModuleName");
+    	}
+    	if(getIntent().getStringExtra("moduleName")!=null){
+    		moduleName = getIntent().getStringExtra("moduleName");
+    	}
     }
     
     /**
