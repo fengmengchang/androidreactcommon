@@ -46,12 +46,13 @@ http://localhost:8081/RNTester/js/RNTesterApp.android.js
  *****************************************************************************************************************************************************************************
  */
 public class MainActivity extends AppCompatActivity implements DefaultHardwareBackBtnHandler {
-    private ReactRootView mReactRootView;
-    private ReactInstanceManager mReactInstanceManager;
-	private String bundleAssetName = "index.android.bundle";
-	private String jSMainModuleName = "index.android";
-	private String moduleName = "helloworld";
-	private boolean remoteable;
+	public ReactRootView mReactRootView;
+	public ReactInstanceManager mReactInstanceManager;
+	public String bundleAssetName = "index.android.bundle";
+	public String jSMainModuleName = "index.android";
+	public String moduleName = "helloworld";
+	public boolean remoteable;
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -188,6 +189,5 @@ public class MainActivity extends AppCompatActivity implements DefaultHardwareBa
     	intent.putExtra("jSMainModuleName", jSMainModuleName);
     	intent.putExtra("moduleName", moduleName);
     	context.startActivity(intent);
-    	
     }
 }
