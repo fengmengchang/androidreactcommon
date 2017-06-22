@@ -60,7 +60,37 @@ public class MainActivity extends AppCompatActivity implements DefaultHardwareBa
 //        jSMainModuleName = getIntent().getStringExtra("jSMainModuleName");
 //        moduleName = getIntent().getStringExtra("moduleName");
         
-        mReactRootView = new ReactRootView(this);
+//        mReactRootView = new ReactRootView(this);
+//        mReactInstanceManager = ReactInstanceManager.builder()
+//                .setApplication(getApplication())
+//                .setBundleAssetName(bundleAssetName)
+//                .setJSMainModuleName(jSMainModuleName)
+//                .addPackage(new MainReactPackage())
+//                .addPackage(new CommonReactPackage())
+//                .setUseDeveloperSupport(BuildConfig.DEBUG)
+//                .setInitialLifecycleState(LifecycleState.RESUMED)
+//                .build();
+//        mReactRootView.startReactApplication(mReactInstanceManager, moduleName, null);
+//
+//        setContentView(mReactRootView);
+        initIntent();
+        initReactRoot();
+    }
+    
+    /**
+     * 接受页面传参
+     */
+    public void initIntent(){
+    	bundleAssetName = getIntent().getStringExtra("bundleAssetName");
+        jSMainModuleName = getIntent().getStringExtra("jSMainModuleName");
+        moduleName = getIntent().getStringExtra("moduleName");
+    }
+    
+    /**
+     * 初始化rootview
+     */
+    public void initReactRoot(){
+    	mReactRootView = new ReactRootView(this);
         mReactInstanceManager = ReactInstanceManager.builder()
                 .setApplication(getApplication())
                 .setBundleAssetName(bundleAssetName)
